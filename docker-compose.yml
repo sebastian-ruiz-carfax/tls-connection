@@ -1,26 +1,27 @@
 services:
   # Define a service (container)
   server:
-    image: nginx:latest  # Specify the Docker image to use
+    # image: nginx:latest  # Specify the Docker image to use
+    image: sha256:2ac0affcd136979ef942abcb97d3cd9251293b74b939a1003e3fdfd3dd865ad4
     ports:
       - "8080:80"  # Map host port 80 to container port 80
       -  "443:443"
-    volumes:
-      - ./certs/ca.crt:/certs/ca.crt
-      - ./certs/server.key:/certs/server.key
-      - ./certs/server.crt:/certs/server.crt
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    links:
-      - backend_service
+    # volumes:
+    #   - ./certs/ca.crt:/certs/ca.crt
+    #   - ./certs/server.key:/certs/server.key
+    #   - ./certs/server.crt:/certs/server.crt
+    #   - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    # links:
+    #   - backend_service
     # networks:
     #   - webnet  # Connect to a custom network
 
-  backend_service:
-    image: node:latest
-    volumes:
-      - ./:/app
-    working_dir: /app
-    command: npm start
+  # backend_service:
+  #   image: node:latest
+  #   volumes:
+  #     - ./:/app
+  #   working_dir: /app
+  #   command: npm start
     # networks:
     #   - webnet  # Connect to a custom network
