@@ -4,7 +4,7 @@
 # cp /home/node/app/ssl/auth/auth.pem /home/node/app/auth.pem;
 # cp /home/node/app/ssl/avisoDeVenta/avisoDeVenta.pem /home/node/app/avisoDeVenta.pem;
 
-
+# envsubst < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf
 nginx -g "daemon off;" &
   
 # Start the second process

@@ -7,8 +7,8 @@ COPY . .
 COPY ./certs/ca.crt /certs/ca.crt
 COPY ./certs/server.key /certs/server.key
 COPY ./certs/server.crt /certs/server.crt
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/ /etc/nginx/templates/
+# COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 RUN npm install pm2 -g
 RUN npm i
 RUN npm run build
