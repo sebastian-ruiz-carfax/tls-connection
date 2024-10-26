@@ -5,6 +5,19 @@
 # cp /home/node/app/ssl/avisoDeVenta/avisoDeVenta.pem /home/node/app/avisoDeVenta.pem;
 
 # envsubst < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf
+
+echo "hello"
+pwd
+mkdir certs
+# cd certs
+printenv CA_CERT_TEXT > /certs/ca.crt
+printenv SERVER_KEY_TEXT > /certs/server.key
+printenv SERVER_CERT_TEXT > /certs/server.crt
+
+
+cd ..
+
+
 nginx -g "daemon off;" &
   
 # Start the second process

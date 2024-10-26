@@ -1,31 +1,37 @@
 services:
   # Define a service (container)
   server:
-    image: nginx:latest  # Specify the Docker image to use
-    # image: sha256:df9417df8c24a4a703c8b3a72bcc5ab881166daf432d5ab6e39cc3841224857f
+    # image: nginx:latest  # Specify the Docker image to use
+    image: sha256:2809ce370ea06a84dac4a2ee3843c5ad7eac794ee34fd81cfe7f9336d5cdab66
     ports:
       - "8080:80"  # Map host port 80 to container port 80
       -  "443:443"
-    environment:
-      - CA_CERT= /certs/ca.crt
-      - SERVER_KEY=/certs/server.key
-      - SERVER_CRT=/certs/server.crt
+    # environment:
+    #   - CA_CERT= /certs/ca.crt
+    #   - SERVER_KEY=/certs/server.key
+    #   - SERVER_CRT=/certs/server.crt
     volumes:
-      - ./certs/ca.crt:/certs/ca.crt
-      - ./certs/server.key:/certs/server.key
-      - ./certs/server.crt:/certs/server.crt
+      # - ./certs/ca.crt:/certs/ca.crt
+      # - ./certs/server.key:/certs/server.key
+      # - ./certs/server.crt:/certs/server.crt
+      # - ./bash.test.sh:/bin/bash/bash.test.sh
       - ./nginx/default.conf.template:/etc/nginx/templates/default.conf.template
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    links:
-      - backend_service
+      # - ./scripts:/scripts
+    # links:
+    #   - backend_service
+    env_file:
+      - .env
+    # command: bash -c scripts/bash.test.sh
+    
     # networks:
     #   - webnet  # Connect to a custom network
 
-  backend_service:
-    image: node:latest
-    volumes:
-      - ./:/app
-    working_dir: /app
-    command: npm start
+  # backend_service:
+  #   image: node:latest
+  #   volumes:
+  #     - ./:/app
+  #   working_dir: /app
+  #   command: npm start
     # networks:
     #   - webnet  # Connect to a custom network
