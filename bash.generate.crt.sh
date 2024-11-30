@@ -20,7 +20,7 @@ openssl genrsa -out server.key 4096
 openssl req -new -nodes -key server.key -out server.csr -subj '/CN=localhost/O=My Company Name LTD./C=US'
 
 # Step 3: Sign the server CSR with the CA certificate and key to create the server certificate
-openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365 -sha256 
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 0 -sha256 
 
 
 ## CLIENT

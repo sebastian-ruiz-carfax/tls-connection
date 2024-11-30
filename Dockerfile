@@ -16,6 +16,7 @@ WORKDIR /home/node/app/dist
 WORKDIR /
 EXPOSE 443
 COPY bash.sh .
+COPY bash.curl.sh .
 CMD ["/bin/sh", "bash.sh"]
 
 # - ./certs/ca.crt /certs/ca.crt

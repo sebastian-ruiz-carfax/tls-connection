@@ -2,7 +2,7 @@ services:
   # Define a service (container)
   server:
     # image: nginx:latest  # Specify the Docker image to use
-    image: sha256:2809ce370ea06a84dac4a2ee3843c5ad7eac794ee34fd81cfe7f9336d5cdab66
+    image: sha256:d71e96831e1a78d5746945fa9f2fcb358f760c358a568582f00eb5142a48676a
     ports:
       - "8080:80"  # Map host port 80 to container port 80
       -  "443:443"
